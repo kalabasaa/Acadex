@@ -44,6 +44,41 @@ This project is developed as a **Practical Final Requirement for App Development
   <img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white" alt="GitHub"/>
 </p>
 
+
+## Get Early Access to Acadex
+
+Acadex is currently in **Early Access**, in the pre-release testing and development phase. Be part of our development journey by trying out the app, organizing your class schedules, academic activities, and reminders, and helping us improve the experience along the way.
+
+<p align="left">
+  <a href="https://github.com/kalabasaa/Acadex/releases/latest">
+    <img src="https://img.shields.io/badge/Download%20Early%20Access-Acadex-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Download Acadex Early Access"/>
+  </a>
+</p>
+
+Your feedback helps shape the future of Acadex. Join us as we build a better way to stay organized as a student
+
+
+### Release Information
+
+- **Version:** 1.0.0
+- **Release Type:** Initial Release
+- **Platform:** Android
+- **Language:** Kotlin
+- **UI:** XML Layouts
+- **Database:** SQLite
+- **Build System:** Gradle
+
+
+### Installation
+
+1. Download `acadex.apk` from the [v1.0.0 release](https://github.com/kalabasaa/Acadex/releases/tag/v1.0.0).
+2. Open the downloaded APK on your Android device.
+3. Allow installation from this source if prompted.
+4. Tap **Install** to install Acadex.
+
+**Note:** This is the initial development release. Some features may still be in progress.
+
+
 ## Security
 
 Acadex uses a local SQLite database to store academic information on the device. Online features, including announcements, will require additional consideration for secure communication and data handling when implemented.
@@ -133,39 +168,6 @@ This section showcases the visual identity and interface design process of Acade
   <img src="docs/screenshots/schedule.png" alt="Acadex Schedule Screen" width="250"/>
 </p>
 -->
-
-## Get Early Access to Acadex
-
-Acadex is currently in **Early Access**, in the pre-release testing and development phase. Be part of our development journey by trying out the app, organizing your class schedules, academic activities, and reminders, and helping us improve the experience along the way.
-
-<p align="left">
-  <a href="https://github.com/kalabasaa/Acadex/releases/latest">
-    <img src="https://img.shields.io/badge/Download%20Early%20Access-Acadex-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Download Acadex Early Access"/>
-  </a>
-</p>
-
-Your feedback helps shape the future of Acadex. Join us as we build a better way to stay organized as a student
-
-
-### Release Information
-
-- **Version:** 1.0.0
-- **Release Type:** Initial Release
-- **Platform:** Android
-- **Language:** Kotlin
-- **UI:** XML Layouts
-- **Database:** SQLite
-- **Build System:** Gradle
-
-
-### Installation
-
-1. Download `acadex.apk` from the [v1.0.0 release](https://github.com/kalabasaa/Acadex/releases/tag/v1.0.0).
-2. Open the downloaded APK on your Android device.
-3. Allow installation from this source if prompted.
-4. Tap **Install** to install Acadex.
-
-**Note:** This is the initial development release. Some features may still be in progress.
 
 ## Development Team
 
