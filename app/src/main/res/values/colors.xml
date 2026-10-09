@@ -1,0 +1,8 @@
+<resources>
+    <color name="bg">#F9FAFC</color>
+    <color name="primary">#1340A5</color>
+    <color name="light">#BACCE0</color>
+    <color name="dark">#0B245C</color>
+    <color name="black">#101010</color>
+    <color name="white">#FFFFFF</color>
+</resources>

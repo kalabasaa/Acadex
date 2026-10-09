@@ -1,0 +1,12 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/dashboardFragment">
+    <fragment android:id="@+id/dashboardFragment" android:name="com.student.acadex.DashboardFragment" android:label="Dashboard"/>
+    <fragment android:id="@+id/calendarFragment" android:name="com.student.acadex.CalendarFragment" android:label="Calendar"/>
+    <fragment android:id="@+id/remindersFragment" android:name="com.student.acadex.RemindersFragment" android:label="Reminders"/>
+    <fragment android:id="@+id/subjectDetailFragment" android:name="com.student.acadex.SubjectDetailFragment" android:label="Subject"/>
+    <fragment android:id="@+id/addSubjectFragment" android:name="com.student.acadex.AddSubjectFragment" android:label="Add subject"/>
+    <fragment android:id="@+id/addScheduleFragment" android:name="com.student.acadex.AddScheduleFragment" android:label="Add schedule"/>
+    <fragment android:id="@+id/addActivityFragment" android:name="com.student.acadex.AddActivityFragment" android:label="Add activity"/>
+    <fragment android:id="@+id/addReminderFragment" android:name="com.student.acadex.AddReminderFragment" android:label="Add reminder"/>
+</navigation>

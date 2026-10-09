@@ -1,0 +1,37 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clipToPadding="false" android:paddingBottom="96dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+<TextView android:id="@+id/tvFormTitle" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Add schedule"/>
+<TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Subject"/>
+<Spinner android:id="@+id/spSubject" android:layout_width="match_parent" android:layout_height="48dp" />
+<TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Day"/>
+<Spinner android:id="@+id/spDay" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/days"/>
+<com.google.android.material.textfield.TextInputLayout 
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:hint="Start time" >
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etStart" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="false"/>
+</com.google.android.material.textfield.TextInputLayout>
+<com.google.android.material.textfield.TextInputLayout 
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:hint="End time" >
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEnd" android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="true" android:focusable="false"/>
+</com.google.android.material.textfield.TextInputLayout>
+<RadioGroup android:id="@+id/rgClassType" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+    <RadioButton android:id="@+id/rbOnsite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="Onsite"/>
+    <RadioButton android:id="@+id/rbOnline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:text="Online"/>
+</RadioGroup>
+<com.google.android.material.textfield.TextInputLayout android:id="@+id/tilRoom"
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:hint="Room" >
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRoom" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.google.android.material.textfield.TextInputLayout>
+<com.google.android.material.textfield.TextInputLayout android:id="@+id/tilOnline"
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:hint="Link / platform" android:visibility="gone">
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etOnline" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.google.android.material.textfield.TextInputLayout>
+<Button android:id="@+id/btnSave" style="@style/Btn" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="24dp" android:text="Save"/>
+<Button android:id="@+id/btnDelete" style="@style/BtnOutline" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="8dp" android:text="Delete" android:visibility="gone"/>
+    </LinearLayout>
+</ScrollView>

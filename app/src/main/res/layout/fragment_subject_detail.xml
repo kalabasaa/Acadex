@@ -1,0 +1,22 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clipToPadding="false" android:paddingBottom="96dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+<TextView android:id="@+id/tvName" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=""/>
+<TextView android:id="@+id/tvInfo" style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+    <Button android:id="@+id/btnEditSubject" style="@style/BtnOutline" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Edit"/>
+    <Button android:id="@+id/btnDeleteSubject" style="@style/BtnOutline" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:layout_weight="1" android:text="Delete"/>
+</LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+    <TextView style="@style/Section" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Schedule"/>
+    <Button android:id="@+id/btnAddSchedule" style="@style/BtnText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ Add"/>
+</LinearLayout>
+<LinearLayout android:id="@+id/scheduleList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+    <TextView style="@style/Section" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Activities"/>
+    <Button android:id="@+id/btnAddActivity" style="@style/BtnText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ Add"/>
+</LinearLayout>
+<LinearLayout android:id="@+id/activityList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+    </LinearLayout>
+</ScrollView>

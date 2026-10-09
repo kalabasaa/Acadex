@@ -1,0 +1,5 @@
+<resources>
+    <string-array name="days"><item>MON</item><item>TUE</item><item>WED</item><item>THU</item><item>FRI</item><item>SAT</item><item>SUN</item></string-array>
+    <string-array name="activity_types"><item>Assignment</item><item>Project</item><item>Quiz</item><item>Exam</item></string-array>
+    <string-array name="statuses"><item>Pending</item><item>In Progress</item><item>Completed</item><item>Missed</item></string-array>
+</resources>

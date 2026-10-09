@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/addSubjectFragment" android:title="Add subject"/>
+    <item android:id="@+id/addScheduleFragment" android:title="Add schedule"/>
+    <item android:id="@+id/addActivityFragment" android:title="Add activity"/>
+</menu>

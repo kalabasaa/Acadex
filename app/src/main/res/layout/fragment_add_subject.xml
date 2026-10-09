@@ -1,0 +1,24 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clipToPadding="false" android:paddingBottom="96dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+<TextView android:id="@+id/tvFormTitle" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Add subject"/>
+<com.google.android.material.textfield.TextInputLayout 
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:hint="Subject name" >
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSubjectName" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.google.android.material.textfield.TextInputLayout>
+<com.google.android.material.textfield.TextInputLayout 
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:hint="Subject code" >
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSubjectCode" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.google.android.material.textfield.TextInputLayout>
+<com.google.android.material.textfield.TextInputLayout 
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:hint="Professor (optional)" >
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etProfessor" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</com.google.android.material.textfield.TextInputLayout>
+<Button android:id="@+id/btnSave" style="@style/Btn" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="24dp" android:text="Save"/>
+<Button android:id="@+id/btnDelete" style="@style/BtnOutline" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="8dp" android:text="Delete" android:visibility="gone"/>
+    </LinearLayout>
+</ScrollView>
