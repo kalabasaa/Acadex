@@ -92,25 +92,28 @@ Announcements are intended to come from an online service rather than being the 
 
 Acadex serves as the team's practical application of Android development concepts, local database management, interface design, and collaborative software development.
 
+<!--
 ## Design & Development
 
 This section showcases the visual identity and interface design process of Acadex, from the initial logo concept to low-fidelity wireframes and high-fidelity UI designs.
 
+
 ### Logo & Visual Identity
 
-<!-- Replace the image path with your actual logo file -->
+ Replace the image path with your actual logo file 
 <p align="center">
   <img src="docs/design/acadex-logo.png" alt="Acadex Logo" width="220"/>
 </p>
 
 ### Low-Fidelity Wireframes
 
-<!-- Add your low-fidelity wireframe images here -->
+ Add your low-fidelity wireframe images here 
 <p align="center">
   <img src="docs/design/lofi-home.png" alt="Low-Fidelity Home Screen" width="250"/>
   <img src="docs/design/lofi-schedule.png" alt="Low-Fidelity Schedule Screen" width="250"/>
 </p>
 
+-->
 <!--
 
 ### High-Fidelity UI Design
@@ -130,6 +133,40 @@ This section showcases the visual identity and interface design process of Acade
   <img src="docs/screenshots/schedule.png" alt="Acadex Schedule Screen" width="250"/>
 </p>
 -->
+
+## Download
+
+<p align="left">
+  <a href="https://github.com/kalabasaa/Acadex/releases/latest">
+    <img src="https://img.shields.io/badge/Download%20APK-v1.0.0-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Download Acadex APK"/>
+  </a>
+  <a href="https://github.com/kalabasaa/Acadex/releases">
+    <img src="https://img.shields.io/badge/View-All%20Releases-181717?style=for-the-badge&logo=github&logoColor=white" alt="View Releases"/>
+  </a>
+</p>
+
+**Acadex v1.0.0** is the initial release of Acadex, an Android student platform developed as a Practical Final Requirement for App Development.
+
+
+### Release Information
+
+- **Version:** 1.0.0
+- **Release Type:** Initial Release
+- **Platform:** Android
+- **Language:** Kotlin
+- **UI:** XML Layouts
+- **Database:** SQLite
+- **Build System:** Gradle
+
+### Installation
+
+1. Download `app-debug.apk` from the [v1.0.0 release](https://github.com/kalabasaa/Acadex/releases/tag/v1.0.0).
+2. Open the downloaded APK on your Android device.
+3. Allow installation from this source if prompted.
+4. Tap **Install** to install Acadex.
+
+**Note:** This is the initial development release. Some features may still be in progress.
+
 ## Development Team
 
 ### Renier Tambogon 
@@ -143,7 +180,7 @@ Responsible for leading the project's development, implementing application func
 
 Contributes to the project through user interface and user experience design, helping shape the application's layout, usability, and overall user experience.
 
-**GitHub:** [https://github.com/Clumsy0717]
+**GitHub:** [ https://github.com/Clumsy0717 ]
 
 ## License
 
