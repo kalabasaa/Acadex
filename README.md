@@ -15,6 +15,8 @@ A student platform for managing class schedules, academic activities, and remind
   <img src="https://img.shields.io/badge/Platform-Android-green?logo=android" alt="Android"/>
 </p>
 
+<br>
+
 ## 📖 About
 
 Acadex is an Android student platform developed to help students organize their academic responsibilities in one place. It focuses on weekly class schedules, subject information, academic activities, and reminders.
@@ -22,6 +24,8 @@ Acadex is an Android student platform developed to help students organize their 
 The application uses Kotlin for functionality, XML for layouts, and SQLite for local data storage.
 
 This project is developed as a **Practical Final Requirement for App Development**, applying Android development, database management, interface design, and version control.
+
+<br>
 
 ## ✨ Features
 
@@ -45,6 +49,8 @@ This project is developed as a **Practical Final Requirement for App Development
   <img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white" alt="GitHub"/>
 </p>
 
+<br>
+
 ## 🚀 Get Early Access to Acadex
 
 Acadex is currently in **Early Access**, in the pre-release testing and development phase. Be part of our development journey by trying out the app, organizing your class schedules, academic activities, and reminders, and helping us improve the experience along the way.
@@ -67,14 +73,7 @@ Your feedback helps shape the future of Acadex. Join us as we build a better way
 - **Database:** SQLite
 - **Build System:** Gradle
 
-### 📲 Installation
-
-1. Download `acadex.apk` from the [v1.0.0 release](https://github.com/kalabasaa/Acadex/releases/tag/v1.0.0).
-2. Open the downloaded APK on your Android device.
-3. Allow installation from this source if prompted.
-4. Tap **Install** to install Acadex.
-
-**Note:** This is the initial development release. Some features may still be in progress.
+<br>
 
 ## 🔒 Security
 
@@ -83,6 +82,8 @@ Acadex uses a local SQLite database to store academic information on the device.
 ## 📸 Screenshots
 
 Screenshots will be added as the application interface develops.
+
+<br>
 
 ## 🗄️ Database Schema
 
@@ -97,6 +98,8 @@ Acadex currently uses or plans to implement the following database tables:
 
 Announcements are intended to come from an online service rather than being the primary source of data in the local database.
 
+<br>
+
 ## 🗺️ Roadmap
 
 - [x] Initialize the Android project.
@@ -107,6 +110,8 @@ Announcements are intended to come from an online service rather than being the 
 - [ ] Implement reminders and notifications.
 - [ ] Integrate online announcements.
 - [ ] Complete the user interface.
+
+<br>
 
 ## 🎓 Academic Requirement
 
@@ -157,6 +162,8 @@ Add screenshots of the actual running Android application here.
 </p>
 -->
 
+<br>
+
 ## 👥 Development Team
 
 ### 👨‍💻 Renier Tambogon
@@ -164,7 +171,7 @@ Add screenshots of the actual running Android application here.
 **Lead Developer · Visual Identity Designer**
 
 Responsible for leading the project's development, implementing application functionality, managing the database, and establishing Acadex's visual identity.
-
+<br>
 ### 🎨 Gunther Ordinario
 
 **Contributor · UI/UX Designer**
@@ -172,6 +179,8 @@ Responsible for leading the project's development, implementing application func
 Contributes to the project through user interface and user experience design, helping shape the application's layout, usability, and overall user experience.
 
 **GitHub:** [Clumsy0717](https://github.com/Clumsy0717)
+
+<br>
 
 ## 📄 License
 
