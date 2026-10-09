@@ -48,15 +48,6 @@ This project is developed as a **Practical Final Requirement for App Development
 
 Acadex uses a local SQLite database to store academic information on the device. Online features, including announcements, will require additional consideration for secure communication and data handling when implemented.
 
-## What I Learned
-
-- Working with SQLite databases in Android.
-- Creating relational tables and connecting records using foreign keys.
-- Using Kotlin to manage application data.
-- Designing Android interfaces with XML layouts.
-- Applying visual identity and interface design principles.
-- Using Git and GitHub for version control and collaboration.
-
 ## Screenshots
 
 Screenshots will be added as the application interface develops.
@@ -81,25 +72,6 @@ Acadex currently uses or plans to implement the following database tables:
 | `reminders` | Reminders associated with classes or activities |
 
 Announcements are intended to come from an online service rather than being the primary source of data in the local database.
-
-## Project Structure
-
-```text
-Acadex/
-├── app/
-│   └── src/
-│       └── main/
-│           ├── java/com/student/acadex/
-│           │   ├── MainActivity.kt
-│           │   └── DatabaseHelper.kt
-│           ├── res/
-│           │   ├── drawable/
-│           │   ├── layout/
-│           │   └── values/
-│           └── AndroidManifest.xml
-├── build.gradle.kts
-└── settings.gradle.kts
-```
 
 ## Roadmap
 
