@@ -92,6 +92,44 @@ Announcements are intended to come from an online service rather than being the 
 
 Acadex serves as the team's practical application of Android development concepts, local database management, interface design, and collaborative software development.
 
+## Design & Development
+
+This section showcases the visual identity and interface design process of Acadex, from the initial logo concept to low-fidelity wireframes and high-fidelity UI designs.
+
+### Logo & Visual Identity
+
+<!-- Replace the image path with your actual logo file -->
+<p align="center">
+  <img src="docs/design/acadex-logo.png" alt="Acadex Logo" width="220"/>
+</p>
+
+### Low-Fidelity Wireframes
+
+<!-- Add your low-fidelity wireframe images here -->
+<p align="center">
+  <img src="docs/design/lofi-home.png" alt="Low-Fidelity Home Screen" width="250"/>
+  <img src="docs/design/lofi-schedule.png" alt="Low-Fidelity Schedule Screen" width="250"/>
+</p>
+
+<!--
+
+### High-Fidelity UI Design
+
+ Add your high-fidelity UI design images here 
+<p align="center">
+  <img src="docs/design/hifi-home.png" alt="High-Fidelity Home Screen" width="250"/>
+  <img src="docs/design/hifi-schedule.png" alt="High-Fidelity Schedule Screen" width="250"/>
+</p>
+-->
+<!--
+### Development Screenshots
+
+ Add screenshots of the actual running Android application here 
+<p align="center">
+  <img src="docs/screenshots/home.png" alt="Acadex Home Screen" width="250"/>
+  <img src="docs/screenshots/schedule.png" alt="Acadex Schedule Screen" width="250"/>
+</p>
+-->
 ## Development Team
 
 ### Renier Tambogon 
