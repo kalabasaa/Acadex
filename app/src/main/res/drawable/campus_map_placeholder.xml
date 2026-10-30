@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PLACEHOLDER campus map (shown until you add your own).
+  To use your map: add your image as res/drawable/campus_map.png (or .jpg / .webp).
+  The Directory page picks it up automatically - no code change needed.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp" android:height="220dp" android:viewportWidth="300" android:viewportHeight="220">
+    <path android:fillColor="#F1F4F8" android:pathData="M0,0h300v220h-300z"/>
+    <path android:fillColor="#8A97A3" android:pathData="M20,16h50v22h-50z M80,16h80v22h-80z M170,16h90v22h-90z M270,16h14v22h-14z"/>
+    <path android:fillColor="#8A97A3" android:pathData="M20,50h50v44h-50z M80,50h80v44h-80z M170,50h90v44h-90z M270,50h14v44h-14z"/>
+    <path android:fillColor="#8A97A3" android:pathData="M20,106h50v30h-50z M80,106h80v30h-80z M170,106h90v30h-90z M270,106h14v30h-14z"/>
+    <path android:fillColor="#8A97A3" android:pathData="M20,148h50v22h-50z M80,148h80v22h-80z M170,148h90v22h-90z M270,148h14v22h-14z"/>
+    <path android:fillColor="#8A97A3" android:pathData="M20,182h50v14h-50z M80,182h80v14h-80z M170,182h90v14h-90z M270,182h14v14h-14z"/>
+    <path android:fillColor="#101010" android:pathData="M60,108c-8,0 -14,6 -14,14c0,10 14,26 14,26s14,-16 14,-26c0,-8 -6,-14 -14,-14zM60,127c-2.8,0 -5,-2.2 -5,-5s2.2,-5 5,-5 5,2.2 5,5 -2.2,5 -5,5z"/>
+</vector>

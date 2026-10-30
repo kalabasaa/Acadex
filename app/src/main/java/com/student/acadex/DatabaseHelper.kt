@@ -93,6 +93,7 @@ class DatabaseHelper(context: Context) :
                             'Pending',
                             'In Progress',
                             'Completed',
+                            'Finished',
                             'Missed'
                         )
                     ),

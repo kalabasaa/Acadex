@@ -1,0 +1,22 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/gap_sm"
+    android:clickable="true" android:focusable="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="@dimen/card_padding">
+
+        <!-- sub code / date / time -->
+        <LinearLayout android:layout_width="84dp" android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:id="@+id/tvCode" style="@style/TaskCode" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvDate" style="@style/TaskDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs"/>
+            <TextView android:id="@+id/tvTime" style="@style/TaskTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- title / description -->
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="@dimen/gap_sm" android:orientation="vertical">
+            <TextView android:id="@+id/tvTitle" style="@style/TaskTitle" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvDesc" style="@style/TaskDesc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs"/>
+        </LinearLayout>
+
+        <!-- status -->
+        <TextView android:id="@+id/tvStatus" style="@style/TaskStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

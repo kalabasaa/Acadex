@@ -1,4 +1,5 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/bg">
 
@@ -13,10 +14,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"/>
 
+    <LinearLayout
+        android:id="@+id/fabSpeedDial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/gap_lg"
+        android:layout_marginBottom="12dp"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/fabQuick"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/btnFabAddReminders"
+            style="@style/SpeedDialLabel"
+            android:text="Add Reminders" />
+
+        <TextView
+            android:id="@+id/btnFabAddSchedule"
+            style="@style/SpeedDialLabel"
+            android:text="Add Schedule" />
+
+        <TextView
+            android:id="@+id/btnFabAddSubject"
+            style="@style/SpeedDialLabel"
+            android:text="Add Subject" />
+
+        <TextView
+            android:id="@+id/btnFabAddTask"
+            style="@style/SpeedDialLabel"
+            android:text="Add Task" />
+
+    </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabQuick"
         android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/gap_lg"
         android:contentDescription="Quick actions"
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/primary"
@@ -25,10 +60,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"/>
 
+    <!-- Icons only: the active icon switches to its filled version and turns blue -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="0dp" android:layout_height="wrap_content"
         android:background="@color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@color/nav_icon"
+        app:itemActiveIndicatorStyle="@null"
         app:menu="@menu/bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -27,7 +27,8 @@ data class ActivityItem(
     val dueDate: String?,
     val description: String?,
     val status: String,
-    val subjectName: String? = null
+    val subjectName: String? = null,
+    val subjectCode: String? = null
 )
 
 data class Reminder(

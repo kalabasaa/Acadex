@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Acadex</string>
+
+    <string name="import_steps">1.  Tap Copy AI prompt.\n2.  Open any AI app (ChatGPT, Gemini, Claude, Copilot...).\n3.  Paste the prompt and attach a clear photo or screenshot of your schedule.\n4.  The AI replies with SQL. Copy only the SQL code block.\n5.  Come back here, paste it in the box, tap Check, then Import.</string>
+
+    <string name="import_tips">Tips for best results\n\u2022  Use a sharp, straight image with every column visible (subject, day, time, room, professor). Crop out everything else.\n\u2022  Always tap Check first. Acadex tests every command safely and tells you which one is wrong. Nothing is saved until you tap Import.\n\u2022  If Check shows an error, tap Copy error for AI, send it back to the AI, then paste the corrected SQL.\n\u2022  Importing twice adds the classes twice. To start over, use Delete all schedules below first.</string>
 </resources>

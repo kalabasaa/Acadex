@@ -1,8 +1,13 @@
 <resources>
     <color name="bg">#F9FAFC</color>
     <color name="primary">#1340A5</color>
+    <color name="primary_soft">#DCE6FA</color>
     <color name="light">#BACCE0</color>
+    <color name="outline">#BACCE0</color>
     <color name="dark">#0B245C</color>
     <color name="black">#101010</color>
     <color name="white">#FFFFFF</color>
+    <color name="muted">#6B7A90</color>
+    <color name="success">#1B7F4B</color>
+    <color name="danger">#B3261E</color>
 </resources>

@@ -1,0 +1,54 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_chevron_left"
+                app:tint="@color/primary" />
+            <TextView
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingStart="@dimen/gap_sm"
+                android:paddingEnd="@dimen/gap_sm"
+                android:text="Edit"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView android:id="@+id/tvTaskTitle" style="@style/Title" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_md" android:textSize="24sp"/>
+        <TextView android:id="@+id/tvTaskType" style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Status"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+            <TextView android:id="@+id/tvTaskStatus" style="@style/TaskStatus" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="16sp"/>
+            <Button android:id="@+id/btnChangeStatus" style="@style/BtnSmall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Change"
+                android:drawableEnd="@drawable/ic_chevron_down" android:drawablePadding="@dimen/gap_xs"/>
+        </LinearLayout>
+
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subject"/>
+        <TextView android:id="@+id/tvTaskSubject" style="@style/Body" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Deadline"/>
+        <TextView android:id="@+id/tvTaskDeadline" style="@style/Body" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Description"/>
+        <TextView android:id="@+id/tvTaskDesc" style="@style/Body" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

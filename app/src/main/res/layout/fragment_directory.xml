@@ -1,0 +1,22 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Campus Map"/>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_md">
+            <com.student.acadex.ZoomImageView
+                android:id="@+id/ivCampusMap"
+                android:layout_width="match_parent" android:layout_height="320dp"
+                android:contentDescription="Campus map"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm"
+            android:text="Pinch to zoom, drag to move, double-tap to reset"/>
+
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Campus Locations &amp; Guide"/>
+        <LinearLayout android:id="@+id/placeList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+
+    </LinearLayout>
+</ScrollView>

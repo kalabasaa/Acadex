@@ -3,12 +3,22 @@ package com.student.acadex
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
+import android.database.DatabaseUtils
 import android.database.sqlite.SQLiteConstraintException
 
 private var shared: DatabaseHelper? = null
 
 private fun helperOf(context: Context): DatabaseHelper =
     shared ?: DatabaseHelper(context.applicationContext).also { shared = it }
+
+/** Result of testing or running imported SQL. */
+class ImportOutcome(
+    val ok: Boolean,
+    val message: String = "",
+    val subjects: Int = 0,
+    val classes: Int = 0,
+    val activities: Int = 0
+)
 
 class Repo(context: Context) {
     private val helper = helperOf(context)
@@ -19,7 +29,7 @@ class Repo(context: Context) {
     private val classSql =
         "SELECT c.*, s.subject_name FROM classes c JOIN subjects s ON s.id = c.subject_id"
     private val activitySql =
-        "SELECT a.*, s.subject_name FROM activities a LEFT JOIN subjects s ON s.id = a.subject_id"
+        "SELECT a.*, s.subject_name, s.subject_code FROM activities a LEFT JOIN subjects s ON s.id = a.subject_id"
 
     private fun Cursor.lng(c: String): Long? =
         getColumnIndexOrThrow(c).let { if (isNull(it)) null else getLong(it) }
@@ -55,7 +65,7 @@ class Repo(context: Context) {
 
     private fun Cursor.toActivity() = ActivityItem(
         lng("id")!!, lng("subject_id"), str("title")!!, str("type")!!, str("due_date"),
-        str("description"), str("status")!!, str("subject_name")
+        str("description"), str("status")!!, str("subject_name"), str("subject_code")
     )
 
     private fun Cursor.toReminder() = Reminder(
@@ -114,7 +124,8 @@ class Repo(context: Context) {
             args.add(subjectId.toString())
         }
         if (date != null) {
-            where.add("a.due_date=?")
+            // due_date may be "yyyy-MM-dd" or "yyyy-MM-dd HH:mm"; compare the date part only
+            where.add("substr(a.due_date,1,10)=?")
             args.add(date)
         }
         val sql = activitySql +
@@ -167,4 +178,108 @@ class Repo(context: Context) {
     }
 
     fun deleteReminder(id: Long) = remove("reminders", id)
+
+    fun setActivityStatus(id: Long, status: String) {
+        db.update(
+            "activities",
+            ContentValues().apply { put("status", status) },
+            "id=?",
+            arrayOf(id.toString())
+        )
+    }
+
+    /** Deletes every subject, class schedule and task (reminders attached to them go too). */
+    fun deleteAllSchedules() {
+        db.beginTransaction()
+        try {
+            db.delete("activities", null, null)
+            db.delete("subjects", null, null) // classes + their reminders cascade
+            db.setTransactionSuccessful()
+        } finally {
+            db.endTransaction()
+        }
+    }
+
+    /** Deletes only tasks (activities). Subjects and class schedules are kept. */
+    fun deleteAllTasks() {
+        db.delete("activities", null, null)
+    }
+
+    /**
+     * Runs already-validated INSERT statements inside one transaction.
+     * commit = false only tests them and always rolls back, so nothing is saved.
+     * Any error rolls everything back.
+     */
+    fun applyImport(statements: List<String>, commit: Boolean): ImportOutcome {
+        val d = db
+        d.beginTransaction()
+        try {
+            val s0 = count("subjects")
+            val c0 = count("classes")
+            val a0 = count("activities")
+
+            for ((i, sql) in statements.withIndex()) {
+                try {
+                    d.execSQL(sql)
+                } catch (e: Exception) {
+                    return ImportOutcome(false, "Statement ${i + 1} failed: ${explain(e)}\n\n${sql.replace(Regex("\\s+"), " ").take(160)}")
+                }
+            }
+
+            importProblem()?.let { return ImportOutcome(false, it) }
+
+            val out = ImportOutcome(true, "", count("subjects") - s0, count("classes") - c0, count("activities") - a0)
+            if (commit) d.setTransactionSuccessful()
+            return out
+        } finally {
+            d.endTransaction()
+        }
+    }
+
+    private fun count(table: String): Int = DatabaseUtils.queryNumEntries(db, table).toInt()
+
+    private fun bad(sql: String): Boolean = DatabaseUtils.longForQuery(db, sql, null) > 0
+
+    private fun importProblem(): String? {
+        val t = "(%s NOT GLOB '[01][0-9]:[0-5][0-9]' AND %s NOT GLOB '2[0-3]:[0-5][0-9]')"
+        if (bad("SELECT COUNT(*) FROM classes WHERE " + t.format("start_time", "start_time") + " OR " + t.format("end_time", "end_time"))) {
+            return "Class times must be 24-hour HH:MM with a leading zero, like 08:00 or 13:30."
+        }
+        if (bad("SELECT COUNT(*) FROM subjects WHERE length(trim(subject_name)) = 0 OR length(trim(subject_code)) = 0")) {
+            return "A subject has an empty name or code."
+        }
+        if (bad("SELECT COUNT(*) FROM activities WHERE length(trim(title)) = 0")) {
+            return "A task has an empty title."
+        }
+        if (bad("SELECT COUNT(*) FROM activities WHERE type NOT IN ('Assignment','Project','Quiz','Exam')")) {
+            return "Task type must be Assignment, Project, Quiz or Exam."
+        }
+        if (bad(
+                "SELECT COUNT(*) FROM activities WHERE due_date IS NOT NULL " +
+                    "AND due_date NOT GLOB '[0-9][0-9][0-9][0-9]-[01][0-9]-[0-3][0-9]' " +
+                    "AND due_date NOT GLOB '[0-9][0-9][0-9][0-9]-[01][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]'"
+            )
+        ) {
+            return "Task due_date must be YYYY-MM-DD or YYYY-MM-DD HH:MM (or NULL)."
+        }
+        return null
+    }
+
+    private fun explain(e: Exception): String {
+        val m = e.message ?: e.javaClass.simpleName
+        return when {
+            "classes.subject_id" in m && "NOT NULL" in m ->
+                "the subject code was not found. Add the subject first and use exactly the same subject_code."
+            "UNIQUE" in m && "subject_code" in m ->
+                "that subject code already exists. Use INSERT OR IGNORE for subjects, or delete schedules first."
+            "FOREIGN KEY" in m ->
+                "a class or task points to a subject that does not exist."
+            "CHECK constraint" in m ->
+                "a value is not allowed. Check: day is MON-SUN, class_type is Online or Onsite, start is before end, " +
+                    "Onsite needs a room (and no online_details), Online needs online_details (and no room), status is Pending/In Progress/Completed/Missed."
+            "NOT NULL" in m ->
+                "a required value is missing ($m)."
+            else -> m
+        }
+    }
 }
