@@ -1,11 +1,6 @@
-
-<div align="center">
- 
 # Acadex
- 
-A student platform for managing class schedules, academic activities, and reminders.
 
-</div>
+A student companion application for managing class schedules, academic activities, reminders, and campus information.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Kotlin-Android-purple?logo=kotlin" alt="Kotlin"/>
@@ -15,28 +10,32 @@ A student platform for managing class schedules, academic activities, and remind
   <img src="https://img.shields.io/badge/Platform-Android-green?logo=android" alt="Android"/>
 </p>
 
-<br>
+## About
 
-## 📖 About
+Acadex is an Android student companion application designed to make academic life more organized and manageable. It brings together class schedules, subject information, academic activities, reminders, campus maps, and online announcements in one place.
 
-Acadex is an Android student platform developed to help students organize their academic responsibilities in one place. It focuses on weekly class schedules, subject information, academic activities, and reminders.
-
-The application uses Kotlin for functionality, XML for layouts, and SQLite for local data storage.
+The application provides students with convenient tools to manage their academic responsibilities, navigate campus information, and stay updated throughout the semester.
 
 This project is developed as a **Practical Final Requirement for App Development**, applying Android development, database management, interface design, and version control.
 
-<br>
-
-## ✨ Features
+## Features
 
 - Subject information, including subject codes and professor names.
 - Weekly class schedules from Monday to Sunday.
-- Online and onsite class modes with meeting details or classroom locations.
-- Academic activities such as assignments, projects, quizzes, and examinations.
-- Reminders connected to classes and academic activities.
-- Online school announcements (planned).
+- Online and onsite class modes.
+- Classroom locations and meeting details.
+- Academic activities, including assignments, projects, quizzes, and examinations.
+- Class and academic activity reminders.
+- Interactive SVG campus map.
+- Dedicated Map and Settings pages.
+- Campus Map Directory.
+- Online school announcements.
+- Personalized user name.
+- Easy class schedule importing.
+- Animated user interface.
+- Terms and Conditions.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 <p align="left">
   <img src="https://img.shields.io/badge/Kotlin-Programming%20Language-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin"/>
@@ -49,71 +48,56 @@ This project is developed as a **Practical Final Requirement for App Development
   <img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white" alt="GitHub"/>
 </p>
 
-<br>
+## Download Acadex
 
-## 🚀 Get Early Access to Acadex
-
-Acadex is currently in **Early Access**, in the pre-release testing and development phase. Be part of our development journey by trying out the app, organizing your class schedules, academic activities, and reminders, and helping us improve the experience along the way.
+Get the latest version of Acadex for Android and explore its features.
 
 <p align="left">
   <a href="https://github.com/kalabasaa/Acadex/releases/latest">
-    <img src="https://img.shields.io/badge/Download%20Early%20Access-Acadex-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Download Acadex Early Access"/>
+    <img src="https://img.shields.io/badge/Download%20Acadex-New%20Version-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Download Acadex - New Version"/>
   </a>
 </p>
 
-Your feedback helps shape the future of Acadex. Join us as we build a better way to stay organized as a student.
+Your feedback and suggestions are welcome as Acadex continues to improve.
 
-### 📦 Release Information
+### Release Information
 
-- **Version:** 1.0.0
-- **Release Type:** Initial Release
+- **Version:** 2.1
+- **Release Type:** Feature Update
 - **Platform:** Android
 - **Language:** Kotlin
 - **UI:** XML Layouts
 - **Database:** SQLite
 - **Build System:** Gradle
 
-<br>
+## Security
 
-## 🔒 Security
+Acadex uses a local SQLite database for storing academic information on the device. Online features, including announcements, communicate with external services.
 
-Acadex uses a local SQLite database to store academic information on the device. Online features, including announcements, will require additional consideration for secure communication and data handling when implemented.
+Users should keep their application updated to receive the latest improvements and fixes.
 
-## 📸 Screenshots
+## Screenshots
 
 Screenshots will be added as the application interface develops.
 
-<br>
 
-## 🗄️ Database Schema
-
-Acadex currently uses or plans to implement the following database tables:
-
-| Table | Description |
-|---|---|
-| `subjects` | Subject name, code, and professor |
-| `classes` | Weekly meeting day, time, class mode, and location |
-| `activities` | Academic tasks, deadlines, and status |
-| `reminders` | Reminders associated with classes or activities |
-
-Announcements are intended to come from an online service rather than being the primary source of data in the local database.
-
-<br>
-
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Initialize the Android project.
-- [x] Design the initial SQLite database schema.
+- [x] Design the SQLite database.
 - [x] Implement subject management.
-- [x] Add and manage weekly class schedules.
+- [x] Add weekly class schedules.
 - [x] Implement academic activity management.
-- [ ] Implement reminders and notifications.
-- [ ] Integrate online announcements.
-- [ ] Complete the user interface.
+- [x] Implement class and activity reminders.
+- [x] Add interactive SVG campus map.
+- [x] Add Map and Settings pages.
+- [x] Implement online announcements.
+- [x] Add schedule importing.
+- [x] Improve interface and animations.
+- [x] Add user personalization.
+- [x] Add Terms and Conditions.
 
-<br>
-
-## 🎓 Academic Requirement
+## Academic Requirement
 
 **Course:** App Development  
 **Project:** Acadex  
@@ -121,12 +105,11 @@ Announcements are intended to come from an online service rather than being the 
 
 Acadex serves as the team's practical application of Android development concepts, local database management, interface design, and collaborative software development.
 
-<!--
-## 🎨 Design & Development
+## Design and Development
 
-This section showcases the visual identity and interface design process of Acadex, from the initial logo concept to low-fidelity wireframes and high-fidelity UI designs.
+This section showcases the visual identity and interface design process of Acadex, from the initial logo concept to wireframes and high-fidelity UI designs.
 
-### 🖌️ Logo & Visual Identity
+### Logo and Visual Identity
 
 Replace the image path with your actual logo file.
 
@@ -134,45 +117,38 @@ Replace the image path with your actual logo file.
   <img src="docs/design/acadex-logo.png" alt="Acadex Logo" width="220"/>
 </p>
 
-### 📝 Low-Fidelity Wireframes
-
-Add your low-fidelity wireframe images here.
+### Low-Fidelity Wireframes
 
 <p align="center">
   <img src="docs/design/lofi-home.png" alt="Low-Fidelity Home Screen" width="250"/>
   <img src="docs/design/lofi-schedule.png" alt="Low-Fidelity Schedule Screen" width="250"/>
 </p>
 
-### 🎨 High-Fidelity UI Design
-
-Add your high-fidelity UI design images here.
+### High-Fidelity UI Design
 
 <p align="center">
   <img src="docs/design/hifi-home.png" alt="High-Fidelity Home Screen" width="250"/>
   <img src="docs/design/hifi-schedule.png" alt="High-Fidelity Schedule Screen" width="250"/>
 </p>
 
-### 📱 Development Screenshots
-
-Add screenshots of the actual running Android application here.
+### Development Screenshots
 
 <p align="center">
   <img src="docs/screenshots/home.png" alt="Acadex Home Screen" width="250"/>
   <img src="docs/screenshots/schedule.png" alt="Acadex Schedule Screen" width="250"/>
 </p>
--->
 
-<br>
+## Development Team
 
-## 👥 Development Team
-
-### 👨‍💻 Renier Tambogon
+### Renier Tambogon
 
 **Lead Developer · Visual Identity Designer**
 
 Responsible for leading the project's development, implementing application functionality, managing the database, and establishing Acadex's visual identity.
-<br>
-### 🎨 Gunther Ordinario
+
+**GitHub:** [Kalabasaa](https://github.com/kalabasaa)
+
+### Gunther Ordinario
 
 **Contributor · UI/UX Designer**
 
@@ -180,9 +156,7 @@ Contributes to the project through user interface and user experience design, he
 
 **GitHub:** [Clumsy0717](https://github.com/Clumsy0717)
 
-<br>
-
-## 📄 License
+## License
 
 Copyright (c) 2026 Jhon Renier Tambogon
 
