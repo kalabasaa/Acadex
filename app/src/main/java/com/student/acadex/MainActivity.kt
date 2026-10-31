@@ -46,16 +46,8 @@ class MainActivity : AppCompatActivity() {
         val nav = (supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment).navController
         bottomNav.setupWithNavController(nav)
 
-        // pages need a solid background or they show through each other mid-transition
-        val navHost = supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
-        navHost.childFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {
-            override fun onFragmentViewCreated(fm: FragmentManager, f: Fragment, v: View, savedInstanceState: Bundle?) {
-                v.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.bg))
-            }
-        }, false)
-
-        // Tapping a tab always lands on that tab's main page (even from a sub-page),
-        // instead of restoring whatever sub-page you left it on.
+        // Tapping a tab always lands on that tab's main page (even from a sub-page, or after
+        // the bell took you from Home to Reminders), instead of restoring whatever you left.
         val tabOptions = NavOptions.Builder()
             .setLaunchSingleTop(true)
             .setPopUpTo(nav.graph.startDestinationId, false)
@@ -74,6 +66,14 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemReselectedListener { item ->
             if (nav.currentDestination?.id != item.itemId) nav.popBackStack(item.itemId, false)
         }
+
+        // pages need a solid background or they show through each other mid-transition
+        val navHost = supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
+        navHost.childFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {
+            override fun onFragmentViewCreated(fm: FragmentManager, f: Fragment, v: View, savedInstanceState: Bundle?) {
+                v.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.bg))
+            }
+        }, false)
 
         val speedDial = findViewById<LinearLayout>(R.id.fabSpeedDial)
         val btnSchedule = findViewById<View>(R.id.btnFabAddSchedule)

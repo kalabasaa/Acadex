@@ -515,7 +515,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="GitHub: github.com/kalabasaa (@kalabasaa)" />
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingTop="@dimen/gap_sm"
+                    android:paddingBottom="@dimen/gap_sm"
+                    android:text="GitHub: github.com/kalabasaa (@kalabasaa)"
+                    android:textColor="@color/primary" />
             </LinearLayout>
         </LinearLayout>
 
@@ -563,33 +569,69 @@
                 android:visibility="gone">
 
                 <TextView
-                    style="@style/Body"
+                    style="@style/Hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Acadex v1.0"
-                    android:textStyle="bold" />
-
+                    android:text="Acadex is a student companion application designed to make academic life more organized and manageable. It brings together class schedules, subject information, academic activities, reminders, campus maps, and online announcements in one place." />
                 <TextView
                     style="@style/Hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Your ultimate student academic companion app designed for organizing classes, schedules, assignments, and campus life." />
-
+                    android:layout_marginTop="@dimen/gap_sm"
+                    android:text="Built to provide students with a convenient way to keep track of their academic responsibilities and stay informed throughout the semester." />
                 <TextView
                     style="@style/Body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/gap_md"
-                    android:text="Developer Information"
-                    android:textStyle="bold" />
-
+                    android:textStyle="bold"
+                    android:text="Acadex v2.1" />
                 <TextView
                     style="@style/Hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Developed by kalabasaa. Built with Material 3, SQLite, and Jetpack Navigation." />
+                    android:text="A major update introducing new features, improved navigation, and a better user experience." />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_sm"
+                    android:text="• Added Map and Settings pages.&#10;• Added an interactive SVG campus map.&#10;• Improved the Map Directory.&#10;• Added online announcements.&#10;• Added name personalization.&#10;• Simplified schedule importing.&#10;• Improved UI and animations.&#10;• Added Terms and Conditions." />
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_md"
+                    android:textStyle="bold"
+                    android:text="Acadex v1.0" />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="The initial release of Acadex, introducing essential tools for managing class schedules, academic activities, and reminders." />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_sm"
+                    android:text="• Added subject information.&#10;• Added subject codes.&#10;• Added professor names.&#10;• Added weekly schedules from Monday to Sunday.&#10;• Added assignments, projects, quizzes, and examinations.&#10;• Added class reminders.&#10;• Added academic activity reminders." />
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_md"
+                    android:textStyle="bold"
+                    android:text="Developer Information" />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:autoLink="web"
+                    android:textColorLink="@color/primary"
+                    android:text="Acadex is developed by Kalabasaa as a tool to help him and other students manage their academic schedules, tasks, and reminders. Follow Kalabasaa on GitHub for more projects, updates, and future improvements: https://github.com/kalabasaa" />
             </LinearLayout>
         </LinearLayout>
 

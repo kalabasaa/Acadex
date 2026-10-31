@@ -1,5 +1,9 @@
 package com.student.acadex
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import android.os.Bundle
 import android.transition.TransitionManager
 import android.view.View
@@ -74,6 +78,15 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         view.findViewById<TextView>(R.id.tvTermsText).text = TermsAndConditions.TEXT.trimIndent()
 
+        // ---- Contact developer ----
+        view.findViewById<TextView>(R.id.tvGitHub).setOnClickListener {
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/kalabasaa")))
+            } catch (e: ActivityNotFoundException) {
+                Toast.makeText(requireContext(), "No app found to open the link", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         // ---- Profile ----
         val etName = view.findViewById<EditText>(R.id.etUserName)
         etName.setText(prefs.userName)
@@ -135,7 +148,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             copyToClipboard(
                 "Acadex import error",
                 "The SQL you gave me failed the check in my app.\n\nError:\n$lastError\n\n" +
-                    "Please fix it and reply with the full corrected SQL only (INSERT statements, same rules as before)."
+                        "Please fix it and reply with the full corrected SQL only (INSERT statements, same rules as before)."
             )
             toast("Copied. Send it to the AI.")
         }
@@ -144,7 +157,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         view.findViewById<View>(R.id.btnDeleteSchedules).setOnClickListener {
             confirm(
                 "This permanently deletes ALL subjects, ALL class schedules and ALL tasks, " +
-                    "plus the reminders attached to them.\n\nThis cannot be undone.",
+                        "plus the reminders attached to them.\n\nThis cannot be undone.",
                 yes = "Delete everything",
                 title = "Delete all schedules?"
             ) {
@@ -155,8 +168,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         view.findViewById<View>(R.id.btnDeleteTasks).setOnClickListener {
             confirm(
                 "This permanently deletes ALL tasks (assignments, projects, quizzes and exams) " +
-                    "and the reminders attached to them.\n\nYour subjects and class schedules are NOT deleted. " +
-                    "This cannot be undone.",
+                        "and the reminders attached to them.\n\nYour subjects and class schedules are NOT deleted. " +
+                        "This cannot be undone.",
                 yes = "Delete tasks",
                 title = "Delete all tasks?"
             ) {

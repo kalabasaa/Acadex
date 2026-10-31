@@ -8,15 +8,43 @@
         <com.google.android.material.card.MaterialCardView style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_md">
             <com.student.acadex.ZoomImageView
                 android:id="@+id/ivCampusMap"
-                android:layout_width="match_parent" android:layout_height="320dp"
+                android:layout_width="match_parent" android:layout_height="280dp"
                 android:contentDescription="Campus map"/>
         </com.google.android.material.card.MaterialCardView>
 
         <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm"
-            android:text="Pinch to zoom, drag to move, double-tap to reset"/>
+            android:text="Pinch to zoom, drag to move, double-tap to zoom in or out"/>
 
-        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Campus Locations &amp; Guide"/>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_md"
+            android:hint="Search places or colleges"
+            android:textColorHint="@color/primary"
+            app:hintTextColor="@color/primary"
+            app:boxStrokeColor="@color/search_stroke"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:cursorColor="@color/primary"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/primary"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/primary">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/primary"
+                android:imeOptions="actionSearch" android:inputType="text" android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView android:id="@+id/tvPlacesHeader" style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Campus Locations &amp; Guide"/>
         <LinearLayout android:id="@+id/placeList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+
+        <TextView android:id="@+id/tvCollegesHeader" style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="College Abbreviations"/>
+        <LinearLayout android:id="@+id/collegeList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+
+        <TextView android:id="@+id/tvNoResults" style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="@dimen/gap_md" android:text="No places or colleges match your search" android:visibility="gone"/>
 
     </LinearLayout>
 </ScrollView>
