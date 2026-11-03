@@ -1,4 +1,12 @@
-# Acadex
+<div align="center">
+
+<img width="200" height="200" alt="ACADEX 3" src="https://github.com/user-attachments/assets/e6f3e3a5-b749-49d6-9730-ddd49a9aaf8d" />
+
+<!--  blue
+<img width="200" height="200" alt="ACADEX 5" src="https://github.com/user-attachments/assets/cf8c9b4b-64ed-46a7-b952-695155be0281" /> 
+-->
+</div>
+<br>
 
 A student companion application for managing class schedules, academic activities, reminders, and campus information.
 
