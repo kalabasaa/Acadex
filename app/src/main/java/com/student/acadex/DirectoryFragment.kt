@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 
@@ -37,10 +38,16 @@ class DirectoryFragment : Fragment(R.layout.fragment_directory) {
             }
             if (colleges.isNotEmpty()) collegeList.fill(colleges, R.layout.item_row) { v, c ->
                 v.bindRow(c.abbr, c.name, null) {}
+                // long name: smaller "& Accounting Information System", all on one line
+                v.findViewById<TextView>(R.id.tvTitle).shrinkTailToOneLine(LONG_NAME_TAIL)
             }
         }
 
         show("")
         view.findViewById<EditText>(R.id.etSearch).doAfterTextChanged { show(it?.toString().orEmpty()) }
+    }
+
+    private companion object {
+        const val LONG_NAME_TAIL = "& Accounting Information System"
     }
 }
