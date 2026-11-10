@@ -1,0 +1,27 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notes"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_sm"
+            android:background="@android:color/transparent"
+            app:tabIndicatorColor="@color/primary"
+            app:tabSelectedTextColor="@color/primary" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_md" android:hint="Search notes">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSearch" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button android:id="@+id/btnNewNote" style="@style/Btn" android:layout_width="match_parent" android:layout_height="@dimen/button_height" android:layout_marginTop="@dimen/gap_md" android:text="+ New note"/>
+
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your notes"/>
+        <LinearLayout android:id="@+id/notesList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+    </LinearLayout>
+</ScrollView>

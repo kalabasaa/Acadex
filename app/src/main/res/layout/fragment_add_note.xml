@@ -1,0 +1,68 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@+id/tvFormTitle" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Add note"/>
+
+        <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm" android:text="Subject"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rowSubject"
+            style="@style/Card"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:strokeWidth="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/field_height"
+            android:layout_marginTop="@dimen/gap_xs"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp">
+                <TextView
+                    android:id="@+id/tvSubject"
+                    style="@style/Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No subject"/>
+                <ImageView
+                    android:id="@+id/arrowSubject"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Select subject"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/primary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_md" android:text="Note"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_xs" android:hint="Title">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTitle" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_md" android:hint="Write your note">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etContent" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="top" android:minLines="6" android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_xl"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btnCancel" style="@style/BtnOutline" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_weight="1" android:text="Cancel"/>
+            <Button android:id="@+id/btnSave" style="@style/Btn" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_marginStart="@dimen/gap_md" android:layout_weight="1" android:text="Save"/>
+        </LinearLayout>
+        <Button android:id="@+id/btnDelete" style="@style/BtnOutline" android:layout_width="match_parent" android:layout_height="@dimen/button_height" android:layout_marginTop="@dimen/gap_sm" android:text="Delete" android:visibility="gone"/>
+    </LinearLayout>
+</ScrollView>
