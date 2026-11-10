@@ -1,0 +1,88 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@+id/tvFormTitle" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GPA Calculator"/>
+
+        <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_lg" android:text="Subject"/>
+        <com.student.acadex.DropdownSpinner android:id="@+id/spSubject" android:layout_width="match_parent" android:layout_height="@dimen/field_height"/>
+
+        <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_lg" android:text="Grading structure"/>
+        <RadioGroup android:id="@+id/rgStructure" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <RadioButton android:id="@+id/rb3Period" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="3 periods"/>
+            <RadioButton android:id="@+id/rb4Period" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/gap_xl" android:text="4 periods"/>
+        </RadioGroup>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_lg">
+            <TextView style="@style/Hint" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Grade"/>
+            <TextView style="@style/Hint" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/gap_sm" android:text="Weight %"/>
+        </LinearLayout>
+
+        <!-- Prelim -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_xs">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Prelim">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPrelimGrade" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/gap_sm" android:hint="%">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPrelimWeight" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Midterm -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_md">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Midterm">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etMidtermGrade" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/gap_sm" android:hint="%">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etMidtermWeight" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Semi-finals (4-period only) -->
+        <LinearLayout android:id="@+id/rowSemi" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_md" android:visibility="gone">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Semi-finals">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSemiGrade" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/gap_sm" android:hint="%">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSemiWeight" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Finals -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_md">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Finals">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etFinalsGrade" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/gap_sm" android:hint="%">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etFinalsWeight" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Result -->
+        <com.google.android.material.card.MaterialCardView style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_lg">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="@dimen/card_padding">
+                <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Result"/>
+                <TextView android:id="@+id/tvResult" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="28sp" android:text="—"/>
+                <TextView android:id="@+id/tvValidation" style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" android:textColor="@color/danger" android:gravity="center" android:text="Enter all grades and make weights total 100%"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_xl"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btnCancel" style="@style/BtnOutline" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_weight="1" android:text="Cancel"/>
+            <Button android:id="@+id/btnSave" style="@style/Btn" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_marginStart="@dimen/gap_md" android:layout_weight="1" android:text="Save" android:enabled="false"/>
+        </LinearLayout>
+        <Button android:id="@+id/btnDelete" style="@style/BtnOutline" android:layout_width="match_parent" android:layout_height="@dimen/button_height" android:layout_marginTop="@dimen/gap_sm" android:text="Delete" android:visibility="gone"/>
+    </LinearLayout>
+</ScrollView>

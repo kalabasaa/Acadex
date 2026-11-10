@@ -1,0 +1,48 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:id="@+id/tvName" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_alignParentStart="true" android:layout_toStartOf="@id/btnBack" android:layout_centerVertical="true"/>
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp" android:layout_height="40dp"
+                android:layout_alignParentEnd="true" android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back to Archived Semesters"
+                android:src="@drawable/ic_chevron_left"
+                app:tint="@color/primary"/>
+        </RelativeLayout>
+
+        <TextView android:id="@+id/tvInfo" style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+        <!-- makes it obvious this is an archive, not the active semester -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBanner"
+            style="@style/Card"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_md">
+            <TextView style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:padding="@dimen/card_padding"
+                android:text="Archived semester. These records are kept apart and do not show on your active pages. Restore the semester to use them again."/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/btnRestore"
+            style="@style/Btn"
+            android:layout_width="match_parent" android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/gap_md"
+            android:text="Restore semester"/>
+
+        <TextView android:id="@+id/tvSubjectsTitle" style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subjects"/>
+        <LinearLayout android:id="@+id/subjectList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+
+        <TextView android:id="@+id/tvSchedulesTitle" style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Class schedules"/>
+        <LinearLayout android:id="@+id/scheduleList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+
+        <TextView android:id="@+id/tvTasksTitle" style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tasks and activities"/>
+        <LinearLayout android:id="@+id/taskList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+    </LinearLayout>
+</ScrollView>

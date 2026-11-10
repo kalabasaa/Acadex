@@ -1,0 +1,39 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_alignParentStart="true" android:layout_toStartOf="@id/btnBack" android:layout_centerVertical="true"
+                android:text="Archived Semesters"/>
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp" android:layout_height="40dp"
+                android:layout_alignParentEnd="true" android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back to Manage Data"
+                android:src="@drawable/ic_chevron_left"
+                app:tint="@color/primary"/>
+        </RelativeLayout>
+
+        <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Semesters you archived, kept apart from your active schedule. Open one to see what is inside or to restore it."/>
+
+        <LinearLayout android:id="@+id/archiveList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+
+        <!-- empty state -->
+        <LinearLayout
+            android:id="@+id/emptyState"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_xl"
+            android:gravity="center_horizontal" android:orientation="vertical"
+            android:padding="@dimen/gap_xl" android:visibility="gone">
+            <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="No archived semesters yet" android:textStyle="bold"/>
+            <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_sm" android:gravity="center"
+                android:text="When a semester ends, use Settings > Manage Data > Archive semester. It will show up here."/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

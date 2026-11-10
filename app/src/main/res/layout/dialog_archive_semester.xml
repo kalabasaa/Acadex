@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="24dp" android:paddingRight="24dp" android:paddingTop="@dimen/gap_sm">
+
+    <TextView style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Tell Acadex which semester you are archiving. All your current subjects, class schedules and tasks will be moved to this archive."/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilYear"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_lg"
+        android:hint="Academic year">
+        <AutoCompleteTextView
+            android:id="@+id/actYear"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSemester"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_md"
+        android:hint="Semester">
+        <AutoCompleteTextView
+            android:id="@+id/actSemester"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvArchiveError"
+        style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_md"
+        android:textColor="@color/danger" android:visibility="gone"/>
+</LinearLayout>
