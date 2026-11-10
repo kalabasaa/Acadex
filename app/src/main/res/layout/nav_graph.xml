@@ -12,4 +12,8 @@
     <fragment android:id="@+id/addScheduleFragment" android:name="com.student.acadex.AddScheduleFragment" android:label="Add schedule"/>
     <fragment android:id="@+id/addActivityFragment" android:name="com.student.acadex.AddActivityFragment" android:label="Add activity"/>
     <fragment android:id="@+id/addReminderFragment" android:name="com.student.acadex.AddReminderFragment" android:label="Add reminder"/>
+    <fragment android:id="@+id/notesFragment" android:name="com.student.acadex.NotesFragment" android:label="Notes"/>
+    <fragment android:id="@+id/addNoteFragment" android:name="com.student.acadex.AddNoteFragment" android:label="Add note"/>
+    <fragment android:id="@+id/archivedSemestersFragment" android:name="com.student.acadex.ArchivedSemestersFragment" android:label="Archived semesters"/>
+    <fragment android:id="@+id/archivedSemesterDetailFragment" android:name="com.student.acadex.ArchivedSemesterDetailFragment" android:label="Archived semester"/>
 </navigation>

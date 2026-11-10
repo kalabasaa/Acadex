@@ -55,7 +55,7 @@
         android:contentDescription="Quick actions"
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/primary"
-        app:tint="@color/white"
+        app:tint="@color/on_primary"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"/>
@@ -64,7 +64,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="0dp" android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/surface"
         app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@color/nav_icon"
         app:itemActiveIndicatorStyle="@null"

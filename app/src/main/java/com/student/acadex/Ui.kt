@@ -5,6 +5,10 @@ import android.app.TimePickerDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.style.RelativeSizeSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
@@ -170,4 +174,30 @@ fun View.bindTask(a: ActivityItem, onOpen: () -> Unit) {
         visibility = if (desc.isEmpty()) View.GONE else View.VISIBLE
     }
     setOnClickListener { onOpen() }
+}
+
+/**
+ * Puts [tail] on its own line and shrinks ONLY that part so it fits on a single line.
+ * The rest of the text keeps its current size. The scale is worked out from the width the row
+ * really has, so it also fits on narrow screens.
+ */
+fun TextView.shrinkTailToOneLine(tail: String, maxScale: Float = 0.85f, minScale: Float = 0.55f) {
+    val full = text.toString()
+    val at = full.indexOf(tail)
+    if (at < 0) return
+    val head = full.substring(0, at).trimEnd()
+
+    fun apply(scale: Float) {
+        val spannable = SpannableString("$head\n$tail")
+        spannable.setSpan(RelativeSizeSpan(scale), head.length + 1, spannable.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        text = spannable
+    }
+
+    apply(maxScale)
+    post {
+        val room = ((parent as? View)?.width ?: width) - paddingLeft - paddingRight
+        if (room <= 0) return@post
+        val tailWidth = TextPaint(paint).measureText(tail) // at the normal (unshrunk) size
+        if (tailWidth > 0f) apply((room / tailWidth).coerceIn(minScale, maxScale))
+    }
 }

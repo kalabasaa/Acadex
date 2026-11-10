@@ -21,12 +21,22 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var bottomNav: BottomNavigationView
+
+    /**
+     * Shows or hides the Map tab from the "Show Campus Map" setting.
+     * Hiding only removes the tab: the map page, its assets and its data stay in the app.
+     */
+    fun updateNavItems() {
+        bottomNav.menu.findItem(R.id.directoryFragment)?.isVisible = Prefs(this).showCampusMap
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val root = findViewById<View>(R.id.root)
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav = findViewById(R.id.bottomNav)
         val fab = findViewById<FloatingActionButton>(R.id.fabQuick)
 
         // Android 15+ draws apps edge-to-edge: keep content clear of the status bar,
@@ -45,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         val nav = (supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment).navController
         bottomNav.setupWithNavController(nav)
+        updateNavItems()
 
         // Tapping a tab always lands on that tab's main page (even from a sub-page, or after
         // the bell took you from Home to Reminders), instead of restoring whatever you left.
@@ -58,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             .build()
         bottomNav.setOnItemSelectedListener { item ->
             val id = item.itemId
+            if (id == R.id.directoryFragment && !Prefs(this).showCampusMap) return@setOnItemSelectedListener false
             if (nav.currentDestination?.id != id && !nav.popBackStack(id, false)) {
                 nav.navigate(id, null, tabOptions)
             }

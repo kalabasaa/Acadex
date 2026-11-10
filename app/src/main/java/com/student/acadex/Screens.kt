@@ -26,20 +26,106 @@ import java.util.Locale
 private val WEEK = arrayOf("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT")
 
 class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
+    private var rotateRunnable: Runnable? = null
+    private var bannerHost: View? = null
+    private var dotViews: List<View> = emptyList()
+    private var bannerCount = 0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val repo = Repo(requireContext())
         val now = Calendar.getInstance()
         val today = WEEK[now.get(Calendar.DAY_OF_WEEK) - 1]
+        val vpBanner = view.findViewById<androidx.viewpager2.widget.ViewPager2>(R.id.vpBanner)
+        val dots = view.findViewById<LinearLayout>(R.id.bannerDots)
+        bannerHost = view
 
-        fun updateGreeting() {
-            val hello = when (now.get(Calendar.HOUR_OF_DAY)) {
-                in 0..11 -> "Good morning"
-                in 12..17 -> "Good afternoon"
-                else -> "Good evening"
-            }
-            val name = Prefs(requireContext()).userName
-            view.findViewById<TextView>(R.id.tvGreeting).text = if (name.isBlank()) hello else "$hello, $name"
+        // Registered once; setupBanners() below may run more than once (e.g. after the
+        // welcome-name dialog) and just refreshes bannerCount/dotViews/the adapter.
+        val runnable = Runnable {
+            if (bannerCount > 1) vpBanner.setCurrentItem((vpBanner.currentItem + 1) % bannerCount, true)
         }
+        rotateRunnable = runnable
+        vpBanner.registerOnPageChangeCallback(object : androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                dotViews.forEachIndexed { i, dot -> dot.alpha = if (i == position) 1f else 0.3f }
+            }
+            override fun onPageScrollStateChanged(state: Int) {
+                view.removeCallbacks(runnable)
+                if (state == androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE) {
+                    view.postDelayed(runnable, 5000)
+                }
+            }
+        })
+
+        var lastAnnouncements: List<Announcement> = emptyList()
+
+        fun showAnnouncementModal(b: HomeBanner) {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(b.title)
+                .setMessage(b.message)
+                .setPositiveButton("Close", null)
+                .show()
+        }
+
+        fun showScheduleModal() {
+            val classes = repo.classesOn(today)
+            val scroll = android.widget.ScrollView(requireContext())
+            val list = LinearLayout(requireContext()).apply { orientation = LinearLayout.VERTICAL }
+            scroll.addView(list)
+            if (classes.isEmpty()) {
+                list.addView(TextView(requireContext()).apply {
+                    text = "No classes today! It's a perfect day to relax or do something productive."
+                    val p = (16 * resources.displayMetrics.density).toInt()
+                    setPadding(p, p, p, p)
+                })
+            } else {
+                list.fill(classes, R.layout.item_row) { v, c ->
+                    v.bindRow("${c.start.timeLabel() ?: c.start}\n${c.end.timeLabel() ?: c.end}", c.subjectName, c.where()) {}
+                }
+            }
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Today's Schedule")
+                .setView(scroll)
+                .setPositiveButton("Close", null)
+                .show()
+        }
+
+        fun setupBanners() {
+            val name = Prefs(requireContext()).userName
+            val banners = buildHomeBanners(repo, name, today, now, lastAnnouncements)
+            bannerCount = banners.size
+            vpBanner.adapter = BannerAdapter(banners) { b ->
+                when (b.kind) {
+                    BannerKind.ANNOUNCEMENT -> showAnnouncementModal(b)
+                    BannerKind.SCHEDULE -> showScheduleModal()
+                    else -> {}
+                }
+            }
+
+            dots.removeAllViews()
+            val dotSize = (8 * resources.displayMetrics.density).toInt()
+            val dotGap = (4 * resources.displayMetrics.density).toInt()
+            dotViews = banners.indices.map {
+                View(requireContext()).apply {
+                    layoutParams = LinearLayout.LayoutParams(dotSize, dotSize).apply {
+                        marginStart = dotGap
+                        marginEnd = dotGap
+                    }
+                    setBackgroundResource(R.drawable.bg_circle_selected)
+                    alpha = if (it == 0) 1f else 0.3f
+                }
+            }
+            dotViews.forEach { dots.addView(it) }
+
+            view.removeCallbacks(runnable)
+            view.postDelayed(runnable, 5000)
+        }
+        setupBanners()
+
+        view.findViewById<View>(R.id.cardNotes).setOnClickListener { go(R.id.notesFragment) }
+        view.findViewById<View>(R.id.cardFocusTimer).setOnClickListener { go(R.id.focusTimerFragment) }
+        view.findViewById<View>(R.id.cardGpa).setOnClickListener { go(R.id.gpaFragment) }
+        view.findViewById<View>(R.id.cardQr).setOnClickListener { go(R.id.shareQrFragment) }
 
         val prefs = Prefs(requireContext())
         if (prefs.userName.isBlank()) {
@@ -61,53 +147,33 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                     val entered = input.text.toString().trim()
                     if (entered.isNotEmpty()) {
                         prefs.userName = entered
-                        updateGreeting()
+                        setupBanners()
                     }
                 }
                 .show()
         }
 
-        updateGreeting()
         view.findViewById<View>(R.id.ivNotification).setOnClickListener {
             go(R.id.remindersFragment)
         }
-        val annTitle = view.findViewById<View>(R.id.tvAnnouncements)
-        val annList = view.findViewById<LinearLayout>(R.id.announcementList)
-        fun showAnnouncements(items: List<Announcement>) {
-            val vis = if (items.isEmpty()) View.GONE else View.VISIBLE
-            annTitle.visibility = vis
-            annList.visibility = vis
-            if (items.isEmpty()) return
-            annList.fill(items, R.layout.item_row) { v, a ->
-                v.bindRow(null, a.title, a.body, a.date.ifEmpty { null }) {
-                    MaterialAlertDialogBuilder(requireContext())
-                        .setTitle(a.title)
-                        .setMessage(a.body)
-                        .setPositiveButton("Close", null)
-                        .show()
-                }
-            }
-        }
-        showAnnouncements(AnnouncementApi.parse(prefs.announcementsCache))
-        if (Supabase.isConfigured) {
-            Thread {
-                val raw = try { AnnouncementApi.fetch() } catch (e: Exception) { null }
-                if (raw != null) {
-                    prefs.announcementsCache = raw
-                    activity?.runOnUiThread { if (isAdded) showAnnouncements(AnnouncementApi.parse(raw)) }
-                }
-            }.start()
-        }
-        view.findViewById<TextView>(R.id.tvToday).text = "Today's schedule · $today"
-
-        view.findViewById<LinearLayout>(R.id.todayList).fill(repo.classesOn(today), R.layout.item_row) { v, c ->
-            v.bindRow("${c.start}\n${c.end}", c.subjectName, c.where()) { go(R.id.addScheduleFragment, id = c.id) }
+        // Announcements now live in the banner carousel (one banner per announcement) instead
+        // of a separate static list; rebuild the banners whenever the cached/refreshed set arrives.
+        loadAnnouncements { items ->
+            lastAnnouncements = items
+            setupBanners()
         }
 
         view.findViewById<LinearLayout>(R.id.subjectList).fill(repo.subjects(), R.layout.item_row) { v, s ->
             val info = listOfNotNull(s.code, s.professor?.takeIf { it.isNotBlank() }).joinToString(" · ")
             v.bindRow(null, s.name, info) { go(R.id.subjectDetailFragment, id = s.id) }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        rotateRunnable?.let { bannerHost?.removeCallbacks(it) }
+        rotateRunnable = null
+        bannerHost = null
     }
 }
 

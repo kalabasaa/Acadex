@@ -2,6 +2,8 @@
     style="@style/ScreenScroll"
     android:layout_width="match_parent" android:layout_height="match_parent">
     <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <!-- Header: logo + notification bell (unchanged) -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -29,13 +31,72 @@
                 android:src="@drawable/ic_notifications"
                 app:tint="@color/primary"/>
         </RelativeLayout>
-        <TextView android:id="@+id/tvGreeting" style="@style/Title" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/gap_xs" android:textColor="@color/black" android:textSize="20sp"/>
-        <TextView android:id="@+id/tvAnnouncements" style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Announcements" android:visibility="gone"/>
-        <LinearLayout android:id="@+id/announcementList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone"/>
-        <TextView android:id="@+id/tvToday" style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <LinearLayout android:id="@+id/todayList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
-        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subjects"/>
+
+        <!-- Rotating banner: greeting+daily quote, announcements, today's schedule, upcoming class -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpBanner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/gap_lg"/>
+        <LinearLayout
+            android:id="@+id/bannerDots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/gap_sm"
+            android:orientation="horizontal"/>
+
+        <!-- Mini Features -->
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_lg" android:text="Mini Features"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardNotes"
+                style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:clickable="true" android:focusable="true">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:gravity="center" android:padding="@dimen/gap_md">
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_feature_notes" android:contentDescription="Notes"/>
+                    <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm"
+                        android:text="Notes" android:textColor="@color/black" android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardFocusTimer"
+                style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="@dimen/gap_sm"
+                android:clickable="true" android:focusable="true">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:gravity="center" android:padding="@dimen/gap_md">
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_feature_timer" android:contentDescription="Focus timer"/>
+                    <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm"
+                        android:text="Focus Timer" android:textColor="@color/black" android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_sm">
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardGpa"
+                style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:clickable="true" android:focusable="true">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:gravity="center" android:padding="@dimen/gap_md">
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_feature_gpa" android:contentDescription="GPA calculator"/>
+                    <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm"
+                        android:text="GPA Calc" android:textColor="@color/black" android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardQr"
+                style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="@dimen/gap_sm"
+                android:clickable="true" android:focusable="true">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:gravity="center" android:padding="@dimen/gap_md">
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_feature_qr" android:contentDescription="Share via QR"/>
+                    <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm"
+                        android:text="Share QR" android:textColor="@color/black" android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Subjects (unchanged) -->
+        <TextView style="@style/Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_lg" android:text="Subjects"/>
         <LinearLayout android:id="@+id/subjectList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
     </LinearLayout>
 </ScrollView>
