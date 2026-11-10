@@ -1,0 +1,81 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ScreenScroll"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout style="@style/ScreenContent" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_xs">
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_chevron_left"
+                app:tint="@color/primary" />
+            <TextView
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Focus Timer" />
+        </RelativeLayout>
+
+        <TextView android:id="@+id/tvPhase" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap_md" android:textSize="16sp" android:textStyle="bold" android:letterSpacing="0.1" android:text="Ready"/>
+
+        <FrameLayout
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/gap_md">
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/ringTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:indicatorSize="260dp"
+                app:indicatorInset="0dp"
+                app:trackThickness="14dp"
+                app:trackCornerRadius="7dp"
+                app:indicatorColor="@color/primary"
+                app:trackColor="@color/primary_soft"
+                app:indicatorDirectionCircular="clockwise"/>
+            <TextView android:id="@+id/tvTime" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center" android:textSize="52sp" android:textStyle="bold" android:fontFamily="monospace"
+                android:textColor="@color/black" android:text="25:00"/>
+        </FrameLayout>
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_md">
+            <Button android:id="@+id/btnPlus1" style="@style/BtnOutline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="0dp" android:paddingStart="@dimen/gap_lg" android:paddingEnd="@dimen/gap_lg" android:text="+1 min" android:enabled="false"/>
+            <Button android:id="@+id/btnPlus3" style="@style/BtnOutline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="0dp" android:paddingStart="@dimen/gap_lg" android:paddingEnd="@dimen/gap_lg" android:layout_marginStart="@dimen/gap_md" android:text="+3 min" android:enabled="false"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_lg">
+            <Button android:id="@+id/btnStart" style="@style/Btn" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_weight="1" android:text="Start"/>
+            <Button android:id="@+id/btnPauseResume" style="@style/Btn" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_weight="1" android:text="Pause" android:visibility="gone"/>
+            <Button android:id="@+id/btnStop" style="@style/BtnOutline" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_marginStart="@dimen/gap_md" android:layout_weight="1" android:text="Stop" android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- Configuration (hidden while a session is running or paused) -->
+        <LinearLayout android:id="@+id/configSection" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="@dimen/gap_xl">
+            <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Study duration"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="@dimen/gap_xs">
+                <Button android:id="@+id/btnStudyMinus" style="@style/BtnOutline" android:layout_width="56dp" android:layout_height="@dimen/field_height" android:minWidth="0dp" android:text="−"/>
+                <TextView android:id="@+id/tvStudyMin" style="@style/Title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:textSize="18sp" android:text="25 min"/>
+                <Button android:id="@+id/btnStudyPlus" style="@style/BtnOutline" android:layout_width="56dp" android:layout_height="@dimen/field_height" android:minWidth="0dp" android:text="+"/>
+            </LinearLayout>
+
+            <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_lg" android:text="Break duration"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="@dimen/gap_xs">
+                <Button android:id="@+id/btnBreakMinus" style="@style/BtnOutline" android:layout_width="56dp" android:layout_height="@dimen/field_height" android:minWidth="0dp" android:text="−"/>
+                <TextView android:id="@+id/tvBreakMin" style="@style/Title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:textSize="18sp" android:text="5 min"/>
+                <Button android:id="@+id/btnBreakPlus" style="@style/BtnOutline" android:layout_width="56dp" android:layout_height="@dimen/field_height" android:minWidth="0dp" android:text="+"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
