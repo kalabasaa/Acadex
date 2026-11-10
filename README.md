@@ -5,7 +5,7 @@
 <!--  blue
 <img width="200" height="200" alt="ACADEX 5" src="https://github.com/user-attachments/assets/cf8c9b4b-64ed-46a7-b952-695155be0281" /> 
 -->
-</div>
+
 <br>
 
 A student companion application for managing class schedules, academic activities, reminders, and campus information.
@@ -17,6 +17,8 @@ A student companion application for managing class schedules, academic activitie
   <img src="https://img.shields.io/badge/SQLite-Database-blue?logo=sqlite" alt="SQLite"/>
   <img src="https://img.shields.io/badge/Platform-Android-green?logo=android" alt="Android"/>
 </p>
+
+</div>
 
 ## About
 
