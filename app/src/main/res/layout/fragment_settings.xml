@@ -120,6 +120,238 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Preferences: Dark Mode + Campus Map visibility -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/headerPrefs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    style="@style/Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="Preferences" />
+
+                <ImageView
+                    android:id="@+id/arrowPrefs"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Expand"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/containerPrefs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dark Mode"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/gap_xs"
+                            android:text="Switch between Light Mode and Dark Mode." />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchDarkMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/gap_md"
+                        android:contentDescription="Dark Mode" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_lg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Show Campus Map"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/gap_xs"
+                            android:text="Turn this off if you are not a University of Eastern Pangasinan student. The Map tab is hidden, nothing is deleted." />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchCampusMap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/gap_md"
+                        android:contentDescription="Show Campus Map" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Permissions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/headerPermissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    style="@style/Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="Permissions" />
+
+                <ImageView
+                    android:id="@+id/arrowPermissions"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Expand"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/containerPermissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding"
+                android:visibility="gone">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allow Notifications" android:textStyle="bold" />
+                        <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" android:text="Allow Acadex to send you notifications about important announcements and updates." />
+                        <TextView android:id="@+id/tvNotifStatus" style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" />
+                    </LinearLayout>
+                    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/switchNotifications" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/gap_md" android:contentDescription="Allow Notifications" />
+                </LinearLayout>
+                <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" android:text="Push notifications are still in testing, so they may not be delivered yet." />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_lg" android:orientation="vertical">
+                    <TextView style="@style/Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Camera Access" android:textStyle="bold" />
+                    <TextView style="@style/Hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" android:text="Allow Acadex to use your camera exclusively for scanning schedule QR codes." />
+                    <TextView android:id="@+id/tvCameraStatus" style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" />
+                    <Button android:id="@+id/btnCameraSettings" style="@style/BtnSmall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm" android:text="Open App Settings" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Scan Schedule QR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/headerScanQr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    style="@style/Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="Scan Schedule QR" />
+
+                <ImageView
+                    android:id="@+id/arrowScanQr"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Expand"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/containerScanQr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding"
+                android:visibility="gone">
+
+                <TextView style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Import subjects and class schedules shared by another Acadex user. The camera opens only when you tap the button below and closes as soon as a code is read." />
+                <Button android:id="@+id/btnStartScan" style="@style/Btn" android:layout_width="match_parent" android:layout_height="@dimen/button_height" android:layout_marginTop="@dimen/gap_md" android:text="Scan QR code" />
+                <TextView android:id="@+id/tvImportError" style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_sm" android:textColor="@color/danger" android:visibility="gone" />
+                <LinearLayout android:id="@+id/importPreview" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="@dimen/gap_md" android:visibility="gone" />
+                <LinearLayout android:id="@+id/importActions" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="@dimen/gap_md" android:visibility="gone">
+                    <Button android:id="@+id/btnImportCancel" style="@style/BtnOutline" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_weight="1" android:text="Cancel" />
+                    <Button android:id="@+id/btnImportConfirm" style="@style/Btn" android:layout_width="0dp" android:layout_height="@dimen/button_height" android:layout_marginStart="@dimen/gap_md" android:layout_weight="1" android:text="Import" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
         <!-- Easy Schedule Import -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -304,6 +536,52 @@
                     style="@style/Body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Archive semester"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_xs"
+                    android:text="Moves your current subjects, class schedules and tasks into the archive. Nothing is deleted, and you can restore them later." />
+
+                <Button
+                    android:id="@+id/btnArchiveSemester"
+                    style="@style/Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/gap_md"
+                    android:text="Archive semester" />
+
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_xl"
+                    android:text="Archived semesters"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_xs"
+                    android:text="View, open and restore the semesters you archived." />
+
+                <Button
+                    android:id="@+id/btnArchivedSemesters"
+                    style="@style/BtnOutline"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/gap_md"
+                    android:text="Archived semesters" />
+
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_xl"
                     android:text="Delete all schedules"
                     android:textStyle="bold" />
 
@@ -399,6 +677,53 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Privacy Policy -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/headerPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    style="@style/Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="Privacy Policy" />
+
+                <ImageView
+                    android:id="@+id/arrowPrivacy"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Expand"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/containerPrivacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding"
+                android:visibility="gone">
+
+                <TextView android:id="@+id/tvPrivacyText" style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="3dp" />
+            </LinearLayout>
+        </LinearLayout>
+
         <!-- Help and Support -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -454,7 +779,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Find answers to common questions about managing schedules, tasks, and using AI import." />
+                    android:text="Find answers to common questions about Acadex, its permissions and its features." />
+
+                <LinearLayout android:id="@+id/faqList" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_md" android:orientation="vertical" />
 
                 <TextView
                     style="@style/Body"
@@ -522,6 +849,28 @@
                     android:paddingBottom="@dimen/gap_sm"
                     android:text="GitHub: github.com/kalabasaa (@kalabasaa)"
                     android:textColor="@color/primary" />
+
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_md"
+                    android:text="Website"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvWebsite"
+                    style="@style/Sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingTop="@dimen/gap_sm"
+                    android:paddingBottom="@dimen/gap_sm"
+                    android:text="acadex-download.vercel.app"
+                    android:textColor="@color/primary" />
             </LinearLayout>
         </LinearLayout>
 
@@ -568,24 +917,72 @@
                 android:padding="@dimen/card_padding"
                 android:visibility="gone">
 
-                <TextView
-                    style="@style/Hint"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Acadex is a student companion application designed to make academic life more organized and manageable. It brings together class schedules, subject information, academic activities, reminders, campus maps, and online announcements in one place." />
-                <TextView
-                    style="@style/Hint"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/gap_sm"
-                    android:text="Built to provide students with a convenient way to keep track of their academic responsibilities and stay informed throughout the semester." />
+                <TextView style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Acadex is an academic companion designed to help students organize their schedules, manage academic tasks, track grades, and stay focused throughout their academic journey." />
+                <TextView style="@style/Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_md" android:textStyle="bold" android:text="Application Information" />
+                <TextView style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Application: Acadex" />
+                <TextView android:id="@+id/tvAppVersion" style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Version: 2.3.1" />
+                <TextView style="@style/Hint" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Developer: kalabasaa" />
+                <TextView android:id="@+id/tvAboutWebsite" style="@style/Sub" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:paddingTop="@dimen/gap_xs" android:paddingBottom="@dimen/gap_xs" android:text="Website: acadex-download.vercel.app" android:textColor="@color/primary" />
+                <TextView android:id="@+id/tvAboutGitHub" style="@style/Sub" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true" android:paddingTop="@dimen/gap_xs" android:paddingBottom="@dimen/gap_xs" android:text="GitHub: github.com/kalabasaa" android:textColor="@color/primary" />
                 <TextView
                     style="@style/Body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/gap_md"
                     android:textStyle="bold"
-                    android:text="Acadex v2.1" />
+                    android:text="Acadex v2.3.1" />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="A major update introducing new productivity tools, Dark Mode, and improved application features." />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_sm"
+                    android:text="• Added Dark Mode support.&#10;• Redesigned the Home page.&#10;• Added personalized greetings and daily subtitles.&#10;• Improved announcement banners.&#10;• Added an expanded Today's Schedule banner.&#10;• Added Notes, Focus Timer, and GPA Calculator.&#10;• Improved campus map information.&#10;• Added Campus Map visibility settings.&#10;• Added expandable announcements.&#10;• Improved data management.&#10;• Added semester archiving and restoration.&#10;• Added Permissions section to Settings.&#10;• Added Scan Schedule QR section to Settings.&#10;• Updated Terms and Conditions.&#10;• Added Privacy Policy.&#10;• Expanded the FAQ." />
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_md"
+                    android:textStyle="bold"
+                    android:text="Features Currently in Testing" />
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_sm"
+                    android:text="Push Notifications" />
+                <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" android:background="@drawable/bg_badge" android:paddingStart="10dp" android:paddingEnd="10dp" android:paddingTop="3dp" android:paddingBottom="3dp" android:textStyle="bold" android:text="Testing" />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_xs"
+                    android:text="Push notifications are currently undergoing testing. Availability and reliability may vary." />
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_sm"
+                    android:text="QR Schedule Sharing" />
+                <TextView style="@style/Sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gap_xs" android:background="@drawable/bg_badge" android:paddingStart="10dp" android:paddingEnd="10dp" android:paddingTop="3dp" android:paddingBottom="3dp" android:textStyle="bold" android:text="Early Access Testing" />
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_xs"
+                    android:text="QR Schedule Sharing is currently in early access testing. Importing and sharing functionality may still receive improvements." />
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_md"
+                    android:textStyle="bold"
+                    android:text="Acadex v2.1.0" />
                 <TextView
                     style="@style/Hint"
                     android:layout_width="match_parent"
@@ -604,7 +1001,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/gap_md"
                     android:textStyle="bold"
-                    android:text="Acadex v1.0" />
+                    android:text="Acadex v1.0.0" />
                 <TextView
                     style="@style/Hint"
                     android:layout_width="match_parent"
@@ -616,7 +1013,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/gap_sm"
-                    android:text="• Added subject information.&#10;• Added subject codes.&#10;• Added professor names.&#10;• Added weekly schedules from Monday to Sunday.&#10;• Added assignments, projects, quizzes, and examinations.&#10;• Added class reminders.&#10;• Added academic activity reminders." />
+                    android:text="• Added subject information.&#10;• Added subject codes.&#10;• Added professor names.&#10;• Added weekly schedules from Monday to Sunday.&#10;• Added class reminders.&#10;• Added assignments, projects, quizzes, and examinations.&#10;• Added academic activity reminders." />
                 <TextView
                     style="@style/Body"
                     android:layout_width="match_parent"
@@ -631,7 +1028,7 @@
                     android:layout_marginTop="2dp"
                     android:autoLink="web"
                     android:textColorLink="@color/primary"
-                    android:text="Acadex is developed by Kalabasaa as a tool to help him and other students manage their academic schedules, tasks, and reminders. Follow Kalabasaa on GitHub for more projects, updates, and future improvements: https://github.com/kalabasaa" />
+                    android:text="Acadex is developed by kalabasaa as a tool to help students manage their academic schedules, tasks, and reminders.&#10;&#10;GitHub: https://github.com/kalabasaa" />
             </LinearLayout>
         </LinearLayout>
 

@@ -1,0 +1,16 @@
+<resources>
+    <!-- Dark Mode palette. Same color names as values/colors.xml, so every screen, dialog and
+         component picks the right value from the active theme. -->
+    <color name="bg">#0F1420</color>
+    <color name="surface">#171E2E</color>
+    <color name="primary">#7FA2F5</color>
+    <color name="on_primary">#0B1B3F</color>
+    <color name="primary_soft">#223056</color>
+    <color name="light">#33415F</color>
+    <color name="outline">#33415F</color>
+    <color name="dark">#BFD0F7</color>
+    <color name="black">#E8ECF4</color>
+    <color name="muted">#98A5BA</color>
+    <color name="success">#5FD39A</color>
+    <color name="danger">#F28B82</color>
+</resources>
